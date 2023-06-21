@@ -1,0 +1,31 @@
+Rapport d'erreur 15 Juin 2023
+
+### requetes php impossibles
+
+>>>site web
+accès refusé à monUser monUser à localhost
+
+>>>serveur VPS
+$mysql
+$root@vps-aa1df6c3:/var/www/html/includes# mariadb
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+>>>sur mysql
+MariaDB [mysql]> ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+
+### connexion à mysql impossible
+
+$mysql
+$root@vps-aa1df6c3:/var/www/html/includes# mysql
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+//solution : 
+root@vps-aa1df6c3:/var/www/html/includes# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 246
+Server version: 10.5.19-MariaDB-0+deb11u2 Debian 11
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
