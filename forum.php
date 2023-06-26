@@ -9,6 +9,8 @@ if(!isset($_SESSION['email'])){
 
 <!DOCTYPE html>
 <html lang="en">
+<div class="background-image">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +19,64 @@ if(!isset($_SESSION['email'])){
     rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
     crossorigin="anonymous">
     <title>Forum</title>
+   
+    <style>
+            #word_count {
+                font-size: 9px;
+            }
+        
+            p h1 h2 {
+                color: white;
+            }
 
+            a {
+                color: white
+            }
+
+            .container h1 {
+                color: white;
+            }
+
+
+            html p {
+                color: white;
+            }
+
+            .background-image {
+                background-image: url('imagerie/pexels-ivan-samkov-4164772.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .header,
+            .footer {
+                background-image: url('imagerie/pexels-ivan-samkov-4164772.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            
+            .contact-form {
+                display: flex;
+                flex-direction: column;
+                align-items:flex-end;
+                margin: auto;
+                
+            }
+
+            .btn-orange {
+                background-color: #DC5E18;
+                border-color: #DC5E18;
+                color : white;  
+            }
+            .form-control {
+                background-color: rgba(81, 81, 81, 0.7);
+            }
+            .custom-table {
+    background-color: rgba(81, 81, 81, 0.7);
+}
+            
+            </style>
     <?php 
     $title = 'Forum';
     include('includes/header.php');
@@ -62,7 +121,7 @@ if(!isset($_SESSION['email'])){
             $threads = $stmt->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
-            <table class="table table-striped mt-4">
+            <table class="table table-striped mt-4" custom-table>                           
                 <tr>
                     <th>#</th>
                     <th>Thread</th>
@@ -81,8 +140,10 @@ if(!isset($_SESSION['email'])){
             }
             ?>
         </table>
+        
     </div>
     <main>
         <?php include('includes/footer.php') ?>
 </body>
+        </div>
 </html>

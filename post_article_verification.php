@@ -40,11 +40,8 @@ if($_FILES['image']['error'] != 4) { // un fic a été envoyé
 
 ///Fonctionnel à partir d'en dessous
 
-try {
-    // Connexion à la base de données
-    $bdd = new PDO('mysql:host=localhost;dbname=devweb2023', 'root', 'root', [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    ]);
+include('includes/db.php');
+
 
     
     // Vérification des champs
@@ -60,7 +57,7 @@ try {
     $filename = 'image-' . time() . '.' . $ext;
 
     // Requête SQL
-    $q = 'INSERT INTO post_article (nom, prenom, titre, categorie, image, corps_de_texte) 
+    $q = 'INSERT INTO article_post (nom, prenom, titre, categorie, image, corps_de_texte) 
         VALUES (:nom, :prenom, :titre, :categorie, :image, :corps_de_texte)';
     $req = $bdd->prepare($q);
     $result = $req->execute([
@@ -74,18 +71,14 @@ try {
 
     if ($result) {
         // Redirection vers la page de succès avec un message de confirmation
-        header('Location: post_article.php?message=Article publié avec succès.');
+        header('Location: article_post.php?message=Article publié avec succès.');
         exit;
     } else {
         // Si la requête a échoué, redirection vers la page de formulaire avec un message d'erreur
-        header('Location: post_article.php?message=Erreur lors de la publication de l\'article.');
+        header('Location: article_post.php?message=Erreur lors de la publication de l\'article.');
         exit;
     }
-} catch (PDOException $e) {
-    // Afficher l'erreur SQL spécifique et rediriger l'utilisateur vers la page de formulaire avec un message d'erreur
-    header('Location: post_article.php?message=' . $e->getMessage());
-    exit;
-}
+
 
 /* inutile et utilité inconnue
 // Récupération des clés depuis la base de données

@@ -48,6 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } else {
         echo "Le thread demandé n'existe pas.";
+        header("Location: forum_thread.php?id_thread=$id_thread");
+            exit;
     }
 } else {
     echo "Méthode de requête invalide.";

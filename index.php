@@ -1,33 +1,59 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html>
-	<?php 
-	$title = 'Accueil';
-	include('includes/head.php');
-	?>
-	<body>
+<head>
+    <style>
+		p {
+			color : white;
+		}
+		.container h1 {
+			color : white;
+		}
+        .background-image {
+            background-image: url('imagerie/pexels-victor-freitas-949131.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-		<?php include('includes/header.php'); ?>
+        .header, .footer {
+            background-image: url('imagerie/pexels-victor-freitas-949131.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <?php 
+        $title = 'Accueil';
+        include('includes/head.php');
+        ?>
 
-		<main>
-			<div class="container">
-				<h1>Accueil</h1>
+        <header class="header">
+            <?php include('includes/header.php'); ?>
+        </header>
 
-				<?php include('includes/message.php'); ?>
-				
-				<p>
-					<?php 
-					if(!isset($_SESSION['email'])){
-						echo 'Contenu non disponible.';
-					}else{
-						echo 'Voici votre contenu privé :)';
-					}
-					?>
-				</p>
-			</div>
-		</main>
+        <main>
+            <div class="container" style="height:1000px">
+                <h1>Accueil</h1>
 
-		<?php include('includes/footer.php'); ?>
+                <?php include('includes/message.php'); ?>
+                
+                <p>
+                    <?php 
+                    if(!isset($_SESSION['email'])){
+                        echo 'Contenu non disponible.';
+                    }else{
+                        echo 'Voici votre contenu privé :)';
+                    }
+                    ?>
+                </p>
+            </div>
+        </main>
 
-	</body>
+        <footer class="footer">
+            <?php include('includes/footer.php'); ?>
+        </footer>
+    </div>
+</body>
 </html>

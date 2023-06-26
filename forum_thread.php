@@ -92,7 +92,7 @@ include('includes/header.php');
                 echo '<h3>Ajouter un commentaire</h3>';
                     echo '<form method="POST" action="forum_comment_verification.php">';
                         echo '<textarea name="commentaire" rows="4" cols="50" required></textarea><br>';
-                        echo ' <input type="hidden" name="id_thread" value="<?php echo $threadId; ?>">';
+                        echo ' <input type="hidden" name="id_thread" value="' . $threadId . '">';
                         echo '<input type="submit" value="Ajouter le commentaire">';
                     echo '</form>';
             } else {

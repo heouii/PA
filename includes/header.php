@@ -16,17 +16,20 @@
 			<li>
 				<a class="nav-link <?= $title == 'Actus&Blog' ? 'active' : '' ?>" href="blog_liste.php">Actus&Blog</a>
 	        </li>
+			
 	        <?php if(!isset($_SESSION['email'])){
 				echo '<li class="nav-item"><a class="nav-link ' . ($title == 'Connexion' ? 'active' : '') . '" href="connexion.php">Connexion</a></li>';
 				echo '<li class="nav-item"><a class="nav-link ' . ($title == 'Inscription' ? 'active' : '') . '" href="inscription.php">Inscription</a></li>';
 			}else{
-				echo '<li class="nav-item"><a class="nav-link ' . ($title == 'Utilisateurs' ? 'active' : '') . '" href="users.php">Utilisateurs</a></li>';
+				echo '<li class="nav-item"><a class="nav-link ' . ($title == 'Administration' ? 'active' : '') . '" href="users.php">Administration</a></li>';
 				echo '<li class="nav-item"><a class="nav-link ' . ($title == 'Mon profil' ? 'active' : '') . '" href="profile.php">Mon profil</a></li>';
 				echo '<li class="nav-item"><a class="nav-link" href="deconnexion.php">Déconnexion</a></li>';
 				echo '<li class="nav-item"><a class="nav-link" href="forum.php">Forum</a></li>';
 			}
 			?>
-			
+			<li>
+				<a class="nav-link" href="contact.php">Contact</a>
+	        </li>
 	      </ul>
 	    </div>
 	  </div>

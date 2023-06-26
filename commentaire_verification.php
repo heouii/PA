@@ -27,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Exécution de la requête
     if ($stmt->execute()) {
-        echo "Le commentaire a été enregistré avec succès.";
+        header("Location: article.php?id_article=$id_article");
+        exit;
     } else {
         echo "Une erreur est survenue lors de l'enregistrement du commentaire.";
     }

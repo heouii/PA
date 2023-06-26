@@ -6,6 +6,8 @@ if(!isset($_SESSION['email'])){
 }
 ?>
 <?php
+        echo '<div class="background-image">';
+
 //var_dump($_SESSION['email']);
 include('includes/db.php');
 
@@ -30,9 +32,40 @@ if (isset($_GET['id_article'])) {
 
         // Affichage de l'article
         include('includes/header.php');
+
         echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         ';
+        echo "<style>
+        p h1 h2 {
+            color : white;
+        }
+
+        a {
+            color : white
+        }
+
+        .container h1{
+            color : white;
+        }
+
+        html p {
+            color : white;
+        }
+
+        .background-image {
+            background-image: url('imagerie/pexels-victor-freitas-949131.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .header, .footer {
+            background-image: url('imagerie/pexels-victor-freitas-949131.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>";
         //la page affichée
+
         echo '<div class="container">';
             
             //titre
@@ -122,4 +155,7 @@ if (isset($_GET['id_article'])) {
 } else {
     echo "Aucun ID d'article spécifié.";
 }
+include('includes/footer.php');
+echo '</div>';
+
 ?>
