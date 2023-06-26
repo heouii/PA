@@ -6,7 +6,7 @@ if(!isset($_SESSION['email'])){
 }
 ?>
 <?php
-var_dump($_SESSION['email']);
+//var_dump($_SESSION['email']);
 include('includes/db.php');
 
 $title = 'page';
