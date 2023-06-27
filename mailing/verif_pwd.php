@@ -13,7 +13,8 @@ if(isset($_GET['key'])){
 
     }catch (Exception $e) {
         
-        echo "Une exception s'est produite : " . $e->getMessage();
+		header("location: ../index.php");
+		exit;
     }
 
 

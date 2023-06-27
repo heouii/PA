@@ -77,7 +77,7 @@ if (isset($_SESSION['email'])) {
         </style>
     
     <?php
-$title = "Contact";
+	$title = "Contact";
 	include('includes/header.php'); ?>
     <?php include('includes/db.php') ?>
     <main>
