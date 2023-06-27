@@ -66,7 +66,9 @@ if (isset($_SESSION['email'])) {
 
         </style>
     </head>
-    <?php include('includes/header.php'); ?>
+    <?php 
+	$title = "Contact";
+	include('includes/header.php'); ?>
     <?php include('includes/db.php') ?>
     <main>
     <div class="container">

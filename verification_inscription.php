@@ -113,7 +113,7 @@ if(!empty($results)){
 
 
 // Préparation de la requête = SECURITE !!
-$q = 'INSERT INTO users (email, mdp, image, sexe, nom, prenom, age, role) VALUES (:email, :mdp, :image, :sexe, :nom, :prenom, :age, :role)';
+$q = 'INSERT INTO users (email, mdp, image, sexe, nom, prenom, age, role,confirm_key) VALUES (:email, :mdp, :image, :sexe, :nom, :prenom, :age, :role, :key)';
 $req = $bdd->prepare($q);
 
 $result = $req->execute([
@@ -124,10 +124,44 @@ $result = $req->execute([
     'nom' => $_POST['nom'],
     'prenom' => $_POST['prenom'],
     'age' => $_POST['age'],
-	'role' => 'utilisateur'
+	'role' => 'utilisateur',
+	'key' => 0
 ]);
+//Création de la clé : 
+$q_id = $bdd->prepare("SELECT id FROM users WHERE email=?");
+$q_id->execute([$_POST['email']]);
+$data = $q_id->fetchAll();
 
 
+
+$key = "";
+	for($i=1;$i < 12;$i++){
+
+    $key .= mt_rand(0,9);
+
+  
+}
+
+$key .= $data[0]['id'];
+
+// Ajout de la clé
+
+$last = $bdd -> prepare("UPDATE users SET confirm_key=? WHERE email=?");
+$last->execute([$key,$_POST['email']]);
+
+
+//Envoi du mail 
+
+include("includes/phpmailer.php");
+
+$objet = "Vérification de votre compte JibSports";
+
+$message = "Bonjour,
+voici le lien vous permettant de vérifier votre compte JibSports : http://127.0.0.1/site finale/mailing/verif_mail.php?key=".$key;
+
+$destinataire = $_POST['email'];
+
+sendmail($message,$objet,$destinataire);
 
 if(!$result){
 	// Redirection avec un message d'erreur
@@ -137,7 +171,7 @@ if(!$result){
 
 
 // Redirection vers la page de connexion avec un message
-header('location: connexion.php?message=Compte créé avec succès !&type=success');
+header('location: connexion.php?message=Un email vous a été envoyé !&type=success');
 exit;
 
 ?>
