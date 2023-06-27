@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
     rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
     crossorigin="anonymous">
     <title>Forum</title>
-   
+    
     <style>
             #word_count {
                 font-size: 9px;
@@ -70,11 +70,29 @@ if(!isset($_SESSION['email'])){
                 color : white;  
             }
             .form-control {
-                background-color: rgba(81, 81, 81, 0.7);
+                background-color: rgba(81, 81, 81, 0.6);
             }
-            .custom-table {
-    background-color: rgba(81, 81, 81, 0.7);
-}
+            td {
+                color : white;
+                padding : 5px;
+            }
+            tr {
+                color : white;
+                background-color: rgba(81, 81, 81, 0.7);
+                border : 1px solid;
+                border-radius: 1em;
+                border-color : lightgray;
+                border-collapse: collapse;
+            }
+            td, th {
+                border-bottom: 10px transparent; 
+
+            }
+            .btn-orange {
+                background-color: #DC5E18;
+                border-color: #DC5E18;
+                color : white;  
+            }
             
             </style>
     <?php 
@@ -99,18 +117,13 @@ if(!isset($_SESSION['email'])){
                 <textarea class="form-control" id="commentaire_zero" name="commentaire_zero" rows="4" cols="50" required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Créer le thread</button>
+            <button type="submit" class="btn btn-orange">Créer le thread</button>
         </form>
 
-
-        <h2>Threads existants</h2>
+        <br> <br>
+        <h2>Threads</h2>
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Titre</th>
-                <th>Commentaire initial</th>
-                <th>Date de création</th>
-            </tr>
+            
             <?php
             include("includes/db.php");
 
@@ -121,7 +134,7 @@ if(!isset($_SESSION['email'])){
             $threads = $stmt->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
-            <table class="table table-striped mt-4" custom-table>                           
+            <table class="table_forum">                           
                 <tr>
                     <th>#</th>
                     <th>Thread</th>
