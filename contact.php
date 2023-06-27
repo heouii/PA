@@ -13,6 +13,7 @@ if (isset($_SESSION['email'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <title>Contact</title>
+</head>
         <style>
             #word_count {
                 font-size: 9px;
@@ -64,11 +65,18 @@ if (isset($_SESSION['email'])) {
                 color : white;  
             }
 
+            .form-control {
+                background-color: rgba(81, 81, 81, 0.6);
+                color : lightgray;
+            }
+
+            
+
+            
+
         </style>
-    </head>
-    <?php 
-	$title = "Contact";
-	include('includes/header.php'); ?>
+    
+    <?php include('includes/header.php'); ?>
     <?php include('includes/db.php') ?>
     <main>
     <div class="container">
@@ -83,26 +91,23 @@ if (isset($_SESSION['email'])) {
             <form method="POST" action="verification_contact.php"   class="contact-form">
                 <div class="row mb-3 col-9">
                      
-                <input type="name" name="nom" placeholder="Nom" >
-                <!-- class="form-control bg-light bg-gradient bg-opacity-10 text-white p-2"> -->
-
-
+                <input class="form-control" type="name" name="nom" placeholder="Nom" >
+                <!-- class="form-control bg-light bg-gradient bg-opacity-10 text-white p-2"> -->                  
+                </div>
+                 <div class="row mb-3 col-9">
+                     
+                        <input class="form-control" type="email" name="email"   placeholder="Votre E-Mail" value="<? (isset($_COOKIE['email']) ? $_COOKIE['email'] : '') ?>">
                     
                 </div>
                  <div class="row mb-3 col-9">
                      
-                        <input type="email" name="email"   placeholder="Votre E-Mail" value="<? (isset($_COOKIE['email']) ? $_COOKIE['email'] : '') ?>">
-                    
-                </div>
-                 <div class="row mb-3 col-9">
-                     
-                        <input type="number" name="telephone" placeholder="Téléphone" min="10"  >
+                        <input class="form-control" type="number" name="telephone" placeholder="Téléphone" min="10"  >
                     
                 </div>
                  <div class="row mb-3 col-9">
                      
                         <label for="objet"></label>
-                        <select id="objet" name="objet"  >
+                        <select id="objet" name="objet"  class="form-control">
                             <option value="Selectionner un objet">Sélectionner un objet</option>
                             <option value="Demande d'information">Demande d'information</option>
                             <option value="Reservation">Réservation</option>
@@ -114,7 +119,7 @@ if (isset($_SESSION['email'])) {
                 </div>
                  <div class="row mb-3 col-9">
                      
-                        <textarea name="contact_commentaire" id="text" placeholder="Votre message"   rows="5" maxlength="500"></textarea>
+                        <textarea name="contact_commentaire" class="form-control" id="text" placeholder="Votre message"   rows="5" maxlength="500"></textarea>
                         <div id="word_count">
                             <p><span id="current_count">0</span>/500</p>
                         
@@ -122,7 +127,7 @@ if (isset($_SESSION['email'])) {
                 </div>
                  <div class="row mb-3 col-9">
                      
-                        <button type="submit" class="btn btn-orange" id="envoyer" value="Envoyer"  >Envoyer</button>
+                        <button type="submit" class="btn btn-orange" id="envoyer" value="Envoyer">Envoyer</button>
                     
                 </div>
             </form>

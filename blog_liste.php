@@ -32,8 +32,8 @@ if(!isset($_SESSION['email'])){
             color : white;
         }
 
-        html {
-            min-height: auto;
+        .blogliste {
+            min-height: 720px;
 
         }
 
@@ -48,6 +48,30 @@ if(!isset($_SESSION['email'])){
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        .blogliste {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .article-box {
+            width : 300px;
+            background-color: ;
+            color : ;
+            margin-bottom: 10px;
+            margin-top: 10px;
+
+        }
+        .article-box img {
+            justify-content: center;
+            margin-left : auto;
+            margin-right: auto;
+            max-width:300px;
+            border-radius: 20p; 
+        }
+
+        
+
     </style>
         
         
@@ -93,6 +117,7 @@ if(!isset($_SESSION['email'])){
                     </div>
                 </form>
             </div>
+            <div class="blogliste">
             <?php
                 include("includes/db.php");
             
@@ -107,7 +132,7 @@ if(!isset($_SESSION['email'])){
                     echo '<div class="article-box">';
             
                     if (!empty($article['image'])) {
-                        echo '<img src="' . $article['image'] . '" alt="Image de l\'article" style="max-width:150px" >';
+                        echo '<img src="' . $article['image'] . '" alt="Image de l\'article">';
                     } else {
                         echo '<div class="image-placeholder" ></div>';
                     }
@@ -126,11 +151,12 @@ if(!isset($_SESSION['email'])){
                 }
             
             ?>
+            </div>
         </div>
         
         </body>
         <footer class="footer">
                 <?php include('includes/footer.php'); ?>
         </footer>
-            </div>
+    
 </html>
