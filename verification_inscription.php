@@ -157,7 +157,7 @@ include("includes/phpmailer.php");
 $objet = "Vérification de votre compte JibSports";
 
 $message = "Bonjour,
-voici le lien vous permettant de vérifier votre compte JibSports : http://127.0.0.1/site finale/mailing/verif_mail.php?key=".$key;
+voici le lien vous permettant de vérifier votre compte JibSports : jib-sports.ddns.net/mailing/verif_mail.php?key=".$key;
 
 $destinataire = $_POST['email'];
 
