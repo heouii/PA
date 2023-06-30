@@ -42,12 +42,22 @@
           Cell.textContent = divisions[i];
           row.appendChild(Cell);
 
+          if(i == divisions.length / 2 - 1){
+            Cell = document.createElement('td')
+            Cell.innerHTML = ' <a class="btn btn-secondary btn-sm" href="user_consulter.php?id=' + divisions[0] + '">Consulter </a> \
+                                <a class="btn btn-primary btn-sm" href="user_modifier.php?id=' + divisions[0] +'">Modifier </a> \
+                                <a class="btn btn-danger btn-sm" href="user_supprimer.php?id=' + divisions[0] + '">Supprimer </a>'
+            row.appendChild(Cell)
+          }
+
         }
+
         
 
         
         tableBody.appendChild(row);
       }
+      
     }
     
     document.getElementById('searchInput').addEventListener('input', searchUsers);
