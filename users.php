@@ -1,3 +1,4 @@
+<script defer src="js/search.js"></script>
 <?php
 // Pour que la page ne soit accessible qu'aux admins
 session_start();
@@ -21,8 +22,11 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
 if ($user && $user['role'] === 'admin') {
     // L'utilisateur a le rôle d'administrateur, le contenu de la page est accessible
     $title = 'Administration';
+	
     include('includes/head.php');
     ?>
+	<input type="text" id="searchInput" placeholder="Rechercher des utilisateurs">
+
 
     
     
@@ -66,6 +70,7 @@ if ($user && $user['role'] === 'admin') {
                             <th>Email</th>
                             <th>Actions</th>
                         </tr>
+                    <tbody id="searchResults">
 
                         <?php
                         foreach ($users as $index => $user) {
@@ -85,6 +90,7 @@ if ($user && $user['role'] === 'admin') {
                               </tr>';
                         }
                         ?>
+                    </tbody>>
 
                     </table>
                 </div>

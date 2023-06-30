@@ -22,7 +22,10 @@ if ($user && $user['role'] === 'admin') {
     // L'utilisateur a le rôle d'administrateur, le contenu de la page est accessible
     $title = 'Administration';
     include('includes/head.php');
+    
     ?>
+
+    <script defer src="js/search.js"></script>
 
     <body>
 
@@ -54,6 +57,7 @@ if ($user && $user['role'] === 'admin') {
                     $users = $req->fetchAll(PDO::FETCH_ASSOC);
                     ?>
 
+
                     <table class="table table-striped mt-4">
                         <tr>
                             <th>#</th>
@@ -65,6 +69,8 @@ if ($user && $user['role'] === 'admin') {
                             <th>Email</th>
                             <th>Actions</th>
                         </tr>
+
+                        <tbody id="searchInput">
 
                         <?php
                         foreach ($users as $index => $user) {
@@ -84,6 +90,7 @@ if ($user && $user['role'] === 'admin') {
                               </tr>';
                         }
                         ?>
+                        </tbody>
 
                     </table>
                 </div>
