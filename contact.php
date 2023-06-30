@@ -98,7 +98,7 @@ if (isset($_SESSION['email'])) {
                 </div>
                  <div class="row mb-3 col-9">
                      
-                        <input class="form-control" type="email" name="email"   placeholder="Votre E-Mail" value="<? (isset($_COOKIE['email']) ? $_COOKIE['email'] : '') ?>">
+                        <input class="form-control" type="email" name="email"   placeholder="Votre E-Mail" value="<?php (isset($_COOKIE['email']) ? $_COOKIE['email'] : '') ?>">
                     
                 </div>
                  <div class="row mb-3 col-9">
