@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    
+    $title = "Newsletter";
     include("../../includes/header.php"); 
     ?>
     

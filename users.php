@@ -25,7 +25,7 @@ if ($user && $user['role'] === 'admin') {
 	
     include('includes/head.php');
     ?>
-	<input type="text" id="searchInput" placeholder="Rechercher des utilisateurs">
+	<input type="text" id="searchInput" placeholder="Rechercher par email">
 
 
     
