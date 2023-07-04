@@ -57,6 +57,7 @@
 		border-color: #DC5E18' >Se connecter</button>
 					</div>
 				</form>
+				<a href="mailing/formulaire_mdp.php"> Mot de passe oublié ? </a>
 			</div>
 
 		</main>
