@@ -3,7 +3,10 @@
 	<?php 
 	$title = 'Inscription';
 	include('includes/head.php');
+
 	?>
+		<script defer src = "js/arial.js"> </script>
+
 	<body>
 
 		<?php include('includes/header.php'); ?>
@@ -49,7 +52,7 @@
 						<div id="FileHelp" class="form-text">2Mo maximum.</div>
 					</div>
 					<div class="mb-3">
-						<button type="submit" class="btn btn-primary">S'inscrire</button>
+						<button type="submit" id ="bouton" class="btn btn-primary">S'inscrire</button>
 					</div>
 				</form>
 
