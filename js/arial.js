@@ -1,81 +1,57 @@
 let divs = document.getElementsByClassName("mb-3");
-
 let inputs = document.querySelectorAll("form input, form select");
-
-
 let bouton = document.getElementById("bouton");
+let clickCount = 0; // Compteur de clics
 
-
-
-for(let i = 2; i < inputs.length;i++){
-
-    divs[i].style.display = "None";
-    
+for (let i = 2; i < inputs.length; i++) {
+  divs[i].style.display = "none";
 }
 
-
-
 divs[divs.length - 1].style.display = "block";
-
-
 bouton.textContent = "Continuer";
 
-function del1(event){
-    
+function del1(event) {
+  if (inputs[0].value === "" || inputs[1].value === "") {
+    alert("Les champs ne sont pas remplis");
+  } else {
+    divs[0].style.display = "none";
+    divs[1].style.display = "none";
+    divs[2].style.display = "block";
+    divs[3].style.display = "block";
+  }
 
-    if(inputs[0].value == "" || inputs[1].value == ""){
-        alert("Les champs ne sont pas remplis");
-    }else{
+  bouton.removeEventListener("click", del1);
 
-        divs[0].style.display = "None";
-        divs[1].style.display = "None";
-        divs[2].style.display = "block";
-        divs[3].style.display = "block";
+  function del2(event) {
+    if (inputs[2].value === 0) {
+      alert("Les champs ne sont pas remplis 1");
+    } else {
+      divs[2].style.display = "none";
+      divs[3].style.display = "none";
+      divs[4].style.display = "block";
+      divs[5].style.display = "block";
+      divs[6].style.display = "block";
+      bouton.textContent = "S'inscrire"
     }
 
-    bouton.removeEventListener(event.type, del1);
+    clickCount++; // Incrémente le compteur de clics
 
-    function del2(event){
-        
-    
-        if(inputs[2].value == 0 ){
-            alert("Les champs ne sont pas remplis 1");
-        }else{
-    
-            divs[2].style.display = "None";
-            divs[3].style.display = "None";
-            divs[4].style.display = "block";
-            divs[5].style.display = "block";
-            divs[6].style.display = "block";
-            
-
-        }
-    
-        bouton.removeEventListener(event.type, del2);
-
-        bouton.textContent = "S'inscrire";
-
-
-        
-    
-    
+    if (clickCount >= 2) {
+      bouton.removeEventListener("click", del2);
     }
+  }
 
-    bouton.addEventListener("click",del2);
-
-
-    
-
-
+  bouton.addEventListener("click", del2);
 }
 
 bouton.type = "button";
 console.log(inputs);
+bouton.addEventListener("click", del1);
 
-
-bouton.addEventListener("click",del1);
-
-
-
-
-
+// Changement du type du bouton à "submit" après la deuxième fois que le bouton est cliqué
+bouton.addEventListener("click", function () {
+  if (clickCount >= 1) {
+    
+    bouton.type = "submit";
+  }
+});
