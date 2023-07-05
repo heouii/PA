@@ -11,7 +11,7 @@ if(!isset($_POST['email'])){
 // Si email invalide > redirection vers le formulaire avec un paramètre get "message" : "Email invalide."
 
 if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-	// Redirection avec un message d'erreur
+
 	header('location: formulaire_newsletter.php?message=Email invalide !&type=danger');
 	exit;
 }

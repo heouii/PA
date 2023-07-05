@@ -91,6 +91,7 @@
 						<a href="inscription.php" class="mdp_oublie">Pas encore inscit ? Cliquez ici !</a>
 					</div>
 				</form>
+				<a href="mailing/formulaire_mdp.php"> Mot de passe oublié ? </a>
 			</div>
 
 		</main>

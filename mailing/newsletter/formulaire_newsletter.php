@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+²<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
