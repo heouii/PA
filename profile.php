@@ -19,6 +19,9 @@ include('includes/head.php');
     <main>
         <div class="container">
             <h1>Mon profil</h1>
+            <div class="mb-3">
+				<button type="submit" class="btn btn-secondary" onclick="window.location.href='user_modifier.php';" >Modifier le profile</button>
+			</div>
 
             <?php include('includes/message.php'); ?>
 
@@ -39,6 +42,7 @@ include('includes/head.php');
 
             <h2>Image de profil</h2>
             <img src="uploads/<?= $user['image'] ?>" alt="profil" style="max-width: 200px; max-height: 200px">
+            <br><a href="avatar.php">Ou construisez votre propre avatar !</a>
 
             <h2>Derniers Commentaires</h2>
 

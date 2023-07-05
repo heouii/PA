@@ -1,7 +1,3 @@
-
-
-
-
 <header class="mb-4">
 	<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
 	<div class="container">
@@ -19,7 +15,6 @@
 			
 	        <?php if(!isset($_SESSION['email'])){
 				echo '<li class="nav-item"><a class="nav-link ' . ($title == 'Connexion' ? 'active' : '') . '" href="connexion.php">Connexion</a></li>';
-				echo '<li class="nav-item"><a class="nav-link ' . ($title == 'Inscription' ? 'active' : '') . '" href="inscription.php">Inscription</a></li>';
 			}else{
 				echo '<li class="nav-item"><a class="nav-link ' . ($title == 'Administration' ? 'active' : '') . '" href="users.php">Administration</a></li>';
 				echo '<li class="nav-item"><a class="nav-link ' . ($title == 'Mon profil' ? 'active' : '') . '" href="profile.php">Mon profil</a></li>';
